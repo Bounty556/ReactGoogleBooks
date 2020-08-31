@@ -9,10 +9,10 @@ function Navbar() {
 
       <ul className='navbar-nav'>
         <li className='nav-item active'>
-          <a class='nav-link' href='/'>Search</a>
+          <a className='nav-link' href='/'>Search</a>
         </li>
         <li className='nav-item active'>
-          <a class='nav-link' href='/Saved'>Saved</a>
+          <a className='nav-link' href='/Saved'>Saved</a>
         </li>
       </ul>
     </nav>
