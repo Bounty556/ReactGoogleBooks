@@ -13,9 +13,8 @@ function BookSearch(props) {
     const searchString = searchTerm.current.value;
     if (searchString.length > 0) {
       // Make the call to the Google Books API
-      GoogleApi.searchBooks(searchTerm)
+      GoogleApi.searchBooks(searchString)
         .then(results => {
-          console.log(results.data.items);
           // Set the books on the Search page to be our results
           props.setBooks(results.data.items);
         });

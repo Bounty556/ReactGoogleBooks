@@ -1,8 +1,30 @@
 import React from 'react';
 
+import Api from '../../util/api';
+
 import './bookEntry.css';
 
 function BookEntry(props) {
+  const removeBook = () => {
+    Api.deleteBook(props._id).then(() => {
+      props.checkSavedBooks();
+    });
+  };
+
+  const saveBook = () => {
+    const book = {
+      title: props.title,
+      authors: props.authors,
+      link: props.link,
+      image: props.image,
+      description: props.description
+    };
+
+    Api.addBook(book).then(() => {
+      props.checkSavedBooks();
+    });
+  };
+
   return (
     <div className='container border border-dark book-box'>
       <div className='row d-flex justify-content-between'>
@@ -17,7 +39,15 @@ function BookEntry(props) {
           >
             View
           </a>
-          <button className='btn btn-light'>Save</button>
+          {props._id ? (
+            <button className='btn btn-light' onClick={removeBook}>
+              Remove
+            </button>
+          ) : (
+            <button className='btn btn-light' onClick={saveBook}>
+              Save
+            </button>
+          )}
         </div>
       </div>
 
