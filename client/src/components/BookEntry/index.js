@@ -52,7 +52,7 @@ function BookEntry(props) {
       </div>
 
       <div className='row'>
-        <p className='lead author-text'>by {props.authors.join(', ')}</p>
+        <p className='lead author-text'>{props.authors ? 'by ' + props.authors.join(', ') : 'No listed authors'}</p>
       </div>
 
       <div className='row'>

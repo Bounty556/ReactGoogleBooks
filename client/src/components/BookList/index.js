@@ -5,8 +5,8 @@ import BookEntry from '../../components/BookEntry';
 function BookList(props) {
   return (
     <div className='container'>
-      {props.bookList ? <hr /> : <></>}
-      {props.bookList ? (
+      {props.bookList && props.bookList.length > 0 ? <hr /> : <></>}
+      {props.bookList && props.bookList.length > 0 ? (
         props.bookList.map((book, count) => {
           for (let i = 0; i < props.savedBooks.length; i++) {
             if (props.savedBooks[i].link === book.volumeInfo.infoLink) {
