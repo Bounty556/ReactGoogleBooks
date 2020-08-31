@@ -24,7 +24,7 @@ function BookList(props) {
               authors={book.volumeInfo.authors}
               title={book.volumeInfo.title}
               description={book.volumeInfo.description}
-              image={book.volumeInfo.imageLinks.thumbnail}
+              image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''}
               link={book.volumeInfo.infoLink}
               checkSavedBooks={props.checkSavedBooks}
               key={count}
