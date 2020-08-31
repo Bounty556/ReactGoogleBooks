@@ -1,0 +1,18 @@
+.author-text {
+  margin-top: -20px;
+  font-size: 12px;
+}
+
+.book-box {
+  padding: 10px 25px 10px 25px;
+}
+
+.book-description {
+  margin-top: -5px;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
+.book-image {
+  margin-right: 8px;
+}

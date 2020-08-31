@@ -1,13 +1,15 @@
 import React from 'react';
 
 import Banner from '../../components/Banner';
+import BookList from '../../components/BookList';
 import Navbar from '../../components/Navbar';
 
 function Saved() {
   return (
     <div>
-      <Banner />
       <Navbar />
+      <Banner />
+      <BookList />
     </div>
   );
 }
