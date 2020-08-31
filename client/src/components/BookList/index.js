@@ -5,25 +5,24 @@ import BookEntry from '../../components/BookEntry';
 function BookList(props) {
   return (
     <div className='container'>
-      <hr />
-      <BookEntry />
+      {props.bookList ? <hr /> : <></>}
+      {props.bookList ? (
+        props.bookList.map((book, i) => (
+          <BookEntry
+            authors={book.volumeInfo.authors}
+            title={book.volumeInfo.title}
+            description={book.volumeInfo.description}
+            isFavorited={false}
+            image={book.volumeInfo.imageLinks.thumbnail}
+            link={book.volumeInfo.infoLink}
+            key={i}
+          />
+        ))
+      ) : (
+        <></>
+      )}
     </div>
   );
-
-  // return (
-  //   <div className='container'>
-  //     {props.bookList ? <hr /> : <></>}
-  //     {props.bookList ? (
-  //       props.bookList.map(book => (
-  //         <div className='row'>
-  //           <BookEntry {...book} />
-  //         </div>
-  //       ))
-  //     ) : (
-  //       <></>
-  //     )}
-  //   </div>
-  // );
 }
 
 export default BookList;

@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
+import GoogleApi from '../../util/googleApi';
 
 import './bookSearch.css';
 
-function BookSearch() {
+function BookSearch(props) {
+  const searchTerm = useRef(null);
+
   const searchBook = event => {
     event.preventDefault();
+  
+    const searchString = searchTerm.current.value;
+    if (searchString.length > 0) {
+      // Make the call to the Google Books API
+      GoogleApi.searchBooks(searchTerm)
+        .then(results => {
+          console.log(results.data.items);
+          // Set the books on the Search page to be our results
+          props.setBooks(results.data.items);
+        });
+    }
   };
 
   return (
@@ -20,6 +35,7 @@ function BookSearch() {
               id='bookSearch'
               className='wideFit'
               placeholder='Harry Potter and the Chamber of Secrets'
+              ref={searchTerm}
             />
           </div>
           <div className='col-lg-3 col-md-2'>
